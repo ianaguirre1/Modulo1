@@ -14,5 +14,9 @@ calificaciones = [int(valor.strip())for valor in entrada.split(",")]
 promedio = sum(calificaciones) / len(calificaciones)
 print("El promedio es:", promedio)
 
-print("Aqui estuve yo, el mejor, Matius")
-print("Desde windows")
+numero = (input())
+
+
+
+
+       

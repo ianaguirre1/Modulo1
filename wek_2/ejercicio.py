@@ -9,6 +9,7 @@ while True:
                 break
         else:
                 print("no encontre el numero")
+                continue
         break
     except ValueError:
         print("estos caracateres no son validos")

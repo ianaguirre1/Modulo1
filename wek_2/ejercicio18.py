@@ -19,22 +19,22 @@ print(biblioteca['001']['titulo'])
 biblioteca.pop('001')
 print(biblioteca)
 
-# codigo = (input("ingresa un código"))
-# libro = (input("ingresa un libro"))
-# autor = (input("ingresa un autor"))
-# fecha = int(input("ingesa una fecha"))
+codigo = (input("ingresa un código"))
+libro = (input("ingresa un libro"))
+autor = (input("ingresa un autor"))
+fecha = int(input("ingesa una fecha"))
 
-# nuevo_libro1 = {
-#     codigo:{
-#     'titulo': libro,
-#     'autor': autor,
-#     'año': fecha}
-# }
-# biblioteca.update(nuevo_libro1)
+nuevo_libro1 = {
+    codigo:{
+    'titulo': libro,
+    'autor': autor,
+    'año': fecha}
+}
+biblioteca.update(nuevo_libro1)
 
-# print("\nBiblioteca actualizada:")
-# for clave, datos in biblioteca.items():
-#     print(f"{clave}: {datos}")
+print("\nBiblioteca actualizada:")
+for clave, datos in biblioteca.items():
+    print(f"{clave}: {datos}")
 
 
 

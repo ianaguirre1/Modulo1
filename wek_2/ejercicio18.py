@@ -35,6 +35,33 @@ biblioteca.update(nuevo_libro1)
 print("\nBiblioteca actualizada:")
 for clave, datos in biblioteca.items():
     print(f"{clave}: {datos}")
+    
+    
+diccionario = {
+    '001': 'hola'}
+    
+
+
+numero = (input("ingrese un numero"))
+contador = {}
+
+for letra in contador:
+    if letra in contador:
+        contador[letra] = contador[letra] +1
+    else:
+        contador[letra] = 1
+
+print(contador)
+
+diccionario = {
+    '001':{'nombre': 'tomas'},
+    '002':{'nombre':'luis'},
+    '003':{'nombre':'jose'}
+}
+
+for libro in diccionario.values():
+    print(libro['nombre'])
+   
 
 
 

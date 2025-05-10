@@ -1,9 +1,9 @@
-# c = True
-# while c:
-#     print("hola")
-#     c =False
-# else:
-#     print("adios")
+c = True
+while c:
+    print("hola")
+    c =False
+else:
+    print("adios")
 
 while True:
     print("Hola")

@@ -1,8 +1,8 @@
 Escuela = {
     '001':{'nombre': 'Mateo', 'edad': 16, 'nota':4.5},
     '002':{'nombre': 'Luis', 'edad': 18, 'nota':5.0},
-    '003':{'nombre': 'Albeiro', 'edad': 19, 'nota':3.5},
-    '004':{'nombre': 'Jose', 'edad': 15, 'nota':4.5},
+    '003':{'nombre': 'Albeiro', 'edad': 19, 'nota':2.6},
+    '004':{'nombre': 'Jose', 'edad': 15, 'nota':2.5},
     '005':{'nombre': 'Sebastian', 'edad': 14, 'nota':4.8}
 }
 
@@ -12,12 +12,14 @@ def mostrar_menu():
     """Muestra el menú principal del inventario."""
     print("\nMENU")
     print("1. Añadir estudiante")
-    print("2. Buscar estudiante")
-    print("2. Buscar estudiante")
-    print("3. Actualizar edad del estudiante")
-    print("4. Actualizar nota del estudiante")
-    print("5. Eliminar estudiantes")
-    print("6. Salir")
+    print("2. Buscar estudiante por nombre")
+    print("3. Buscar estudiante por id")
+    print("4. Actualizar edad del estudiante")
+    print("5. Actualizar nota del estudiante")
+    print("6. Elinar estudiantes")
+    print("7. Calcular promedio de estudiantes")
+    print("8. Umbral de estudiantes por de bajo de 3.0")
+    print("9. Salir")
     
 def autenticar():
     """Autenticacion"""
@@ -59,7 +61,7 @@ def buscar_estudiante_nombre():
     
 def buscar_Estudiante_id():
     """Permite al usuario ingresar estudiantes a la base de datos."""
-    id = input("Ingrese el código del producto para ver el precio: ")#pen
+    id = input("Ingrese el código del producto para ver el precio: ")
 
     if id in Escuela:
         print(f"Estudiante: {Escuela[id]['nombre']}")
@@ -99,14 +101,57 @@ def actualizar_nota_estudiante():
         except ValueError:
             print("La nota ingresada no es un número válido.")
     else:
-        print("Código de producto inválido.")     
+        print("Código de producto inválido.")    
+
+def promedio_estudiantes():
+    """Permite calcular el promedio de las notas"""
+    total_notas = 0
+    cantidad_estudiantes = 0
+    for id_estudiante, info_estudiante in Escuela.items():
+        if 'nota' in info_estudiante:
+            total_notas += info_estudiante['nota']
+            cantidad_estudiantes += 1
+
+    if cantidad_estudiantes > 0:
+        promedio = total_notas / cantidad_estudiantes
+        print(f"El promedio de las notas de los estudiantes es: {promedio}    {cantidad_estudiantes}" )
+    else:
+        print("No hay notas para calcular el promedio.")
+
+def promedio_bajo():
+    """Muestra la cantidad y nombres de estudiantes con notas por debajo de 3.0."""
+    estudiantes_bajo_promedio = []
+    cantidad_estudiantes = 0
+    for id_estudiante, info_estudiante in Escuela.items():
+        if 'nota' in info_estudiante:
+            if info_estudiante['nota'] < 3.0:
+                estudiantes_bajo_promedio.append(info_estudiante['nombre'])
+                cantidad_estudiantes += 1
+
+    if cantidad_estudiantes > 0:
+        print(f"\nHay {cantidad_estudiantes} estudiantes con notas por debajo de 3.0:")
+        for nombre in estudiantes_bajo_promedio:
+            print(f"- {nombre}")
+    else:
+        print("\nNo hay estudiantes con notas por debajo de 3.0.")
+                
+                    
         
 def Eliminar_estudiantes():
     """permite borrar el estudiante"""
-    Eliminar= input("Ingrese la ID del estudiante que desea Eliminar: ")
+    Eliminar = input("Ingrese la ID del estudiante que desea Eliminar: ")
     if Eliminar in Escuela:
-        Escuela.pop(Eliminar)
-        
+        confirmar = input("El estudiante existe, ¿deseas continuar con la eliminacion (si/no)?: ")
+        if confirmar.lower() == "si":
+            Escuela.pop(Eliminar)
+            print(f"El estudiante con ID {Eliminar} ha sido eliminado.")
+        elif confirmar.lower() == "no":
+            print("La eliminacion ha sido cancelada.")
+        else:
+            print("Respuesta invalida. Por favor, ingresa 'si' o 'no'.")
+    else:
+        print(f"No se encontro ningun estudiante con la ID {Eliminar}.")
+
 
 if autenticar():
     while True:
@@ -126,6 +171,10 @@ if autenticar():
         elif opcion == '6':
             Eliminar_estudiantes() 
         elif opcion == '7':
+            promedio_estudiantes()   
+        elif opcion == '8':
+            promedio_bajo() 
+        elif opcion == '9':
             print("Saliendo del programa.")
             break
         else:
@@ -137,12 +186,9 @@ else:
 
 
 
+  
+"""Listar estudiantes con notas inferiores a un umbral (por ejemplo, 3.0):
 
-"""Actualizar información de un estudiante:
-
-Deben poder actualizar la nota o la edad de un estudiante.
-La nota debe estar entre 0.0 y 5.0.
-La edad debe ser un número entero positivo.    
-            """
+El sistema debe permitir listar todos los estudiantes que tengan una nota menor a un umbral determinado (por defecto, 3.0)."""
 
         

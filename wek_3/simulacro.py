@@ -179,6 +179,7 @@ if authenticate():
             print("Opción inválida. Por favor, intente de nuevo.")
 else:
     print("El programa finalizó debido a un error de autenticación.")
+#.
 
 
 

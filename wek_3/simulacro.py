@@ -179,3 +179,11 @@ if authenticate(): # Start main program if authenticated.
             print("Opción inválida. Por favor, intente de nuevo.") # Invalid option.
 else:
     print("El programa finalizó debido a un error de autenticación.") # Authentication failed.
+
+
+
+
+
+
+
+        

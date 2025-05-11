@@ -65,4 +65,3 @@ def Ingresar_productos():
     
     print(f"Producto con codigo: '{codigo_nuevo}' añadido al inventario")
     
-def 

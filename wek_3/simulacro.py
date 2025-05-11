@@ -1,14 +1,14 @@
-Escuela = {
-    '001':{'nombre': 'Mateo', 'edad': 16, 'nota':4.5},
-    '002':{'nombre': 'Luis', 'edad': 18, 'nota':5.0},
-    '003':{'nombre': 'Albeiro', 'edad': 19, 'nota':2.6},
-    '004':{'nombre': 'Jose', 'edad': 15, 'nota':2.5},
-    '005':{'nombre': 'Sebastian', 'edad': 14, 'nota':4.8}
+School = {
+    '001': {'name': 'Mateo', 'age': 16, 'grade': 4.5},
+    '002': {'name': 'Luis', 'age': 18, 'grade': 5.0},
+    '003': {'name': 'Albeiro', 'age': 19, 'grade': 2.6},
+    '004': {'name': 'Jose', 'age': 15, 'grade': 2.5},
+    '005': {'name': 'Sebastian', 'age': 14, 'grade': 4.8}
 }
 
-contra = "escuela"
+password = "escuela"
 
-def mostrar_menu():
+def display_menu():
     """Muestra el menú principal del inventario."""
     print("\nMENU")
     print("1. Añadir estudiante")
@@ -20,161 +20,159 @@ def mostrar_menu():
     print("7. Calcular promedio de estudiantes")
     print("8. Umbral de estudiantes por de bajo de 3.0")
     print("9. Salir")
-    
-def autenticar():
+
+def authenticate():
     """Autenticacion"""
     while True:
-        contraseña_ingresada = input("Ingrese la contraseña de acceso: ")
-        if contraseña_ingresada == contra:
+        entered_password = input("Ingrese la contraseña de acceso: ")
+        if entered_password == password:
             print("Autenticación exitosa")
             return True
         else:
             print("Contraseña incorrecta.")
-            
-def añadir_estudiante():
-    """Permite al usuario ingresar nuevos estudiantes."""
-    id_nuevo = input("Ingrese una ID unica para el estudiante: ")
-    if id_nuevo in Escuela:
-        print("El estudiante ya está registrado")
-    else: 
-        
-        nombre_nuevo = input("Ingrese el nombre del produ: ")
-        edad_nueva = input("Ingrese el precio del producto: ")
-        nota_nueva = input("Ingrese la cantidad del producto: ")
 
-        nuevo_estudiantes = {
-            id_nuevo: {
-                'nombre': nombre_nuevo,
-                'edad': int(edad_nueva),
-                'nota': int(nota_nueva)
+def add_student():
+    """Permite al usuario ingresar nuevos estudiantes."""
+    new_id = input("Ingrese una ID unica para el estudiante: ")
+    if new_id in School:
+        print("El estudiante ya está registrado")
+    else:
+
+        new_name = input("Ingrese el nombre del produ: ")
+        new_age = input("Ingrese el precio del producto: ")
+        new_grade = input("Ingrese la cantidad del producto: ")
+
+        new_students = {
+            new_id: {
+                'name': new_name,
+                'age': int(new_age),
+                'grade': int(new_grade)
             }
         }
-        Escuela.update(nuevo_estudiantes)
-        print(f"Estudiante con ID: '{id_nuevo}' añadido a la Escula.")
+        School.update(new_students)
+        print(f"Estudiante con ID: '{new_id}' añadido a la Escula.")
 
-def buscar_estudiante_nombre():
-    nombre = input("ingrese el nombre del estudiante")
-    if Escuela[nombre]['nombre'] == nombre:
-        print(f"El estudiante {nombre} está en la lista")
+def search_student_by_name():
+    name = input("ingrese el nombre del estudiante")
+    if School[name]['name'] == name:
+        print(f"El estudiante {name} está en la lista")
     else:
         print("El estudiante no está registrado")
-    
-def buscar_Estudiante_id():
-    """Permite al usuario ingresar estudiantes a la base de datos."""
-    id = input("Ingrese el código del producto para ver el precio: ")
 
-    if id in Escuela:
-        print(f"Estudiante: {Escuela[id]['nombre']}")
+def search_student_by_id():
+    """Permite al usuario ingresar estudiantes a la base de datos."""
+    id_to_search = input("Ingrese el código del producto para ver el precio: ")
+
+    if id_to_search in School:
+        print(f"Estudiante: {School[id_to_search]['name']}")
     else:
         print("No se encontró el estudiante")
 
-    
-def actualizar_edad_estudiante():
+
+def update_student_age():
     """Permite actualizar la información del estudiante"""
-    estudiantes_actualizar = input("ingrese la ID del estudiante que desea actualizar: ")
-    if estudiantes_actualizar in Escuela:
-        nuevo_edad_str = input(f"Ingrese un nueva edad para {Escuela[estudiantes_actualizar]['nombre']}: ")
+    student_to_update = input("ingrese la ID del estudiante que desea actualizar: ")
+    if student_to_update in School:
+        new_age_str = input(f"Ingrese un nueva edad para {School[student_to_update]['name']}: ")
         try:
-            if int(nuevo_edad_str) < 0:
+            if int(new_age_str) < 0:
                 print("no se permiten numeros negativos")
                 return
-            nuevo_edad = int(nuevo_edad_str)
-            Escuela[estudiantes_actualizar]['edad'] = nuevo_edad
-            print(f"La edad de {Escuela[estudiantes_actualizar]['nombre']} ha sido actualizado a {nuevo_edad}.")
+            new_age = int(new_age_str)
+            School[student_to_update]['age'] = new_age
+            print(f"La edad de {School[student_to_update]['name']} ha sido actualizado a {new_age}.")
         except ValueError:
             print("La nota ingresada no es un número válido.")
     else:
         print("Código de producto inválido.")
-        
-def actualizar_nota_estudiante():
+
+def update_student_grade():
     """Permite actualizar la información del estudiante"""
-    estudiantes_actualizar = input("ingrese la ID del estudiante que desea actualizar: ")
-    if estudiantes_actualizar in Escuela:
-        nuevo_nota_str = input(f"Ingrese un nueva nota para {Escuela[estudiantes_actualizar]['nombre']}: ")
+    student_to_update = input("ingrese la ID del estudiante que desea actualizar: ")
+    if student_to_update in School:
+        new_grade_str = input(f"Ingrese un nueva nota para {School[student_to_update]['name']}: ")
         try:
-            if float(nuevo_nota_str) < 0.0 or float(nuevo_nota_str) > 5.0:
+            if float(new_grade_str) < 0.0 or float(new_grade_str) > 5.0:
                 print("No es posible insertar la nota. El rango es entre 0.0 y 5.0")
                 return
-            nuevo_nota = float(nuevo_nota_str)
-            Escuela[estudiantes_actualizar]['nota'] = nuevo_nota
-            print(f"La nota de {Escuela[estudiantes_actualizar]['nombre']} ha sido actualizado a {nuevo_nota}.")
+            new_grade = float(new_grade_str)
+            School[student_to_update]['grade'] = new_grade
+            print(f"La nota de {School[student_to_update]['name']} ha sido actualizado a {new_grade}.")
         except ValueError:
             print("La nota ingresada no es un número válido.")
     else:
-        print("Código de producto inválido.")    
+        print("Código de producto inválido.")
 
-def promedio_estudiantes():
+def calculate_average_grade():
     """Permite calcular el promedio de las notas"""
-    total_notas = 0
-    cantidad_estudiantes = 0
-    for id_estudiante, info_estudiante in Escuela.items():
-        if 'nota' in info_estudiante:
-            total_notas += info_estudiante['nota']
-            cantidad_estudiantes += 1
+    total_grades = 0
+    student_count = 0
+    for student_id, student_info in School.items():
+        if 'grade' in student_info:
+            total_grades += student_info['grade']
+            student_count += 1
 
-    if cantidad_estudiantes > 0:
-        promedio = total_notas / cantidad_estudiantes
-        print(f"El promedio de las notas de los estudiantes es: {promedio}    {cantidad_estudiantes}" )
+    if student_count > 0:
+        average = total_grades / student_count
+        print(f"El promedio de las notas de los estudiantes es: {average}")
     else:
         print("No hay notas para calcular el promedio.")
 
-def promedio_bajo():
+def low_grade_threshold():
     """Muestra la cantidad y nombres de estudiantes con notas por debajo de 3.0."""
-    estudiantes_bajo_promedio = []
-    cantidad_estudiantes = 0
-    for id_estudiante, info_estudiante in Escuela.items():
-        if 'nota' in info_estudiante:
-            if info_estudiante['nota'] < 3.0:
-                estudiantes_bajo_promedio.append(info_estudiante['nombre'])
-                cantidad_estudiantes += 1
+    students_below_threshold = []
+    student_count = 0
+    for student_id, student_info in School.items():
+        if 'grade' in student_info:
+            if student_info['grade'] < 3.0:
+                students_below_threshold.append(student_info['name'])
+                student_count += 1
 
-    if cantidad_estudiantes > 0:
-        print(f"\nHay {cantidad_estudiantes} estudiantes con notas por debajo de 3.0:")
-        for nombre in estudiantes_bajo_promedio:
-            print(f"- {nombre}")
+    if student_count > 0:
+        print(f"\nHay {student_count} estudiantes con notas por debajo de 3.0:")
+        for name in students_below_threshold:
+            print(f"- {name}")
     else:
         print("\nNo hay estudiantes con notas por debajo de 3.0.")
-                
-                    
-        
-def Eliminar_estudiantes():
+
+def delete_students():
     """permite borrar el estudiante"""
-    Eliminar = input("Ingrese la ID del estudiante que desea Eliminar: ")
-    if Eliminar in Escuela:
-        confirmar = input("El estudiante existe, ¿deseas continuar con la eliminacion (si/no)?: ")
-        if confirmar.lower() == "si":
-            Escuela.pop(Eliminar)
-            print(f"El estudiante con ID {Eliminar} ha sido eliminado.")
-        elif confirmar.lower() == "no":
+    student_to_delete = input("Ingrese la ID del estudiante que desea Eliminar: ")
+    if student_to_delete in School:
+        confirm = input("El estudiante existe, ¿deseas continuar con la eliminacion (si/no)?: ")
+        if confirm.lower() == "si":
+            School.pop(student_to_delete)
+            print(f"El estudiante con ID {student_to_delete} ha sido eliminado.")
+        elif confirm.lower() == "no":
             print("La eliminacion ha sido cancelada.")
         else:
             print("Respuesta invalida. Por favor, ingresa 'si' o 'no'.")
     else:
-        print(f"No se encontro ningun estudiante con la ID {Eliminar}.")
+        print(f"No se encontro ningun estudiante con la ID {student_to_delete}.")
 
 
-if autenticar():
+if authenticate():
     while True:
-        mostrar_menu()
-        opcion = input("Seleccione una opción: ")
+        display_menu()
+        option = input("Seleccione una opción: ")
 
-        if opcion == '1':
-            añadir_estudiante()
-        elif opcion == '2':
-            buscar_estudiante_nombre()
-        elif opcion == '3':
-            buscar_Estudiante_id()
-        elif opcion == '4':
-            actualizar_edad_estudiante()
-        elif opcion == "5":
-            actualizar_nota_estudiante()
-        elif opcion == '6':
-            Eliminar_estudiantes() 
-        elif opcion == '7':
-            promedio_estudiantes()   
-        elif opcion == '8':
-            promedio_bajo() 
-        elif opcion == '9':
+        if option == '1':
+            add_student()
+        elif option == '2':
+            search_student_by_name()
+        elif option == '3':
+            search_student_by_id()
+        elif option == '4':
+            update_student_age()
+        elif option == "5":
+            update_student_grade()
+        elif option == '6':
+            delete_students()
+        elif option == '7':
+            calculate_average_grade()
+        elif option == '8':
+            low_grade_threshold()
+        elif option == '9':
             print("Saliendo del programa.")
             break
         else:
@@ -186,9 +184,6 @@ else:
 
 
 
-  
-"""Listar estudiantes con notas inferiores a un umbral (por ejemplo, 3.0):
 
-El sistema debe permitir listar todos los estudiantes que tengan una nota menor a un umbral determinado (por defecto, 3.0)."""
 
         

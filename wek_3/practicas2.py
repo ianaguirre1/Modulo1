@@ -232,7 +232,7 @@ print(f"Booleano 2: {booleano2}")  # Salida: Booleano 2: False
 #################################
 mi_diccionario = {"a": 1, "b": 2, "c": 3}
 for clave, valor in mi_diccionario.items():
-    print(f"Clave: {clave}, Valor: {valor}")
+    print(f"Clave: {clave}, Valor: {valor}") 
     
 ################################
 

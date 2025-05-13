@@ -183,7 +183,7 @@ else:
 
     print("El programa finalizó debido a un error de autenticación.") # Fallo de autenticación.
 
-    print("El programa finalizó debido a un error de autenticación.") # Authentication failed.
+    print("El programa finalizó debido a un error de autenticación.") # Authentication failed. #j
 
 
 

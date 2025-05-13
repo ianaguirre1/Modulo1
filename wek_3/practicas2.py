@@ -301,12 +301,12 @@ mi_lista_desordenada.sort()
 print(f"Lista ordenada con sort(): {mi_lista_desordenada}")  # Salida: Lista ordenada con sort(): [1, 2, 5, 8]
 
 # reverse(): Invertir in-place
-mi_lista_ordenada.reverse()
-print(f"Lista invertida con reverse(): {mi_lista_ordenada}")  # Salida: Lista invertida con reverse(): [8, 5, 2, 1]
+# mi_lista_ordenada.reverse()
+# print(f"Lista invertida con reverse(): {mi_lista_ordenada}")  # Salida: Lista invertida con reverse(): [8, 5, 2, 1]
 
-# clear(): Eliminar todos los elementos
-mi_lista_ordenada.clear()
-print(f"Lista después de clear(): {mi_lista_ordenada}")  # Salida: Lista después de clear(): []
+# # clear(): Eliminar todos los elementos
+# mi_lista_ordenada.clear()
+# print(f"Lista después de clear(): {mi_lista_ordenada}")  # Salida: Lista después de clear(): []
 
 ##################DICCIONARIOSSSSSSSSSSSSSSSSSSSS
 

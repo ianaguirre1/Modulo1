@@ -180,4 +180,16 @@ if autenticar(): # Iniciar programa principal si la autenticación es exitosa.
         else:
             print("Opción inválida. Por favor, intente de nuevo.") # Opción inválida.
 else:
+
     print("El programa finalizó debido a un error de autenticación.") # Fallo de autenticación.
+
+    print("El programa finalizó debido a un error de autenticación.") # Authentication failed.
+
+
+
+
+
+
+
+        
+

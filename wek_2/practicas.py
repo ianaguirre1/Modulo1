@@ -107,4 +107,3 @@ while True:
     except ValueError:
         print("ingrese datos validos por favor")
         
-        
